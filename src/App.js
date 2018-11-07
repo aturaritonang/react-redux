@@ -6,22 +6,16 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      userName: "Atur"
-    }
   }
 
   changeUserName(newName) {
-    this.setState({
-      userName: newName
-    });
   }
 
   render() {
     return (
       <div className="constainer">
         <Main changeUserName={this.changeUserName.bind(this)}></Main>
-        <User userName={this.state.userName}></User>
+        <User userName="Atur"></User>
       </div>
     );
   }

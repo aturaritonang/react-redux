@@ -1,7 +1,8 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
 // import './index.css';
-// import App from './App';
+import React from 'react';
+import ReactDOM from 'react-dom';
+// import { render } from 'react-dom';
+import App from './App';
 // import * as serviceWorker from './serviceWorker';
 
 // ReactDOM.render(<App />, document.getElementById('root'));
@@ -74,22 +75,12 @@ store.subscribe(() => {
     //console.log("Store updated!", store.getState());
 });
 
-store.dispatch({
-    type: "ADD",
-    payload: 100
-});
+// store.dispatch({ type: "ADD", payload: 100 });
 
-store.dispatch({
-    type: "ADD",
-    payload: 22
-});
+// store.dispatch({ type: "ADD", payload: 22 });
 
-store.dispatch({
-    type: "SUBSTRACT",
-    payload: 80
-});
+// store.dispatch({ type: "SUBSTRACT", payload: 80 });
 
-store.dispatch({
-    type: "SET_AGE",
-    payload: 35
-});
+// store.dispatch({ type: "SET_AGE", payload: 35 });
+
+ReactDOM.render(<App />, document.getElementById('root'));
