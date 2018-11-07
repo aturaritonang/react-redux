@@ -1,7 +1,6 @@
 // import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { render } from 'react-dom';
 import App from './App';
 // import * as serviceWorker from './serviceWorker';
 
@@ -14,6 +13,7 @@ import App from './App';
 
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
+import { Provider } from 'react-redux';
 
 const userReducer = (state = {
     name: 'Atur',
@@ -69,7 +69,10 @@ const myLogger = (store) => (next) => (action) => {
     next(action);
 }
 
-const store = createStore(combineReducers({ mathReducer, userReducer }), applyMiddleware(myLogger, createLogger()));
+const store = createStore(
+    combineReducers({ math: mathReducer, user: userReducer }),
+    applyMiddleware(myLogger, createLogger())
+);
 
 store.subscribe(() => {
     //console.log("Store updated!", store.getState());
@@ -83,4 +86,7 @@ store.subscribe(() => {
 
 // store.dispatch({ type: "SET_AGE", payload: 35 });
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>, document.getElementById('root'));
